@@ -15,18 +15,17 @@ export const useTagViewStore = defineStore('tagsView', () => {
 
   watch(() => [tagViews.value, currentTagView.value], () => {
     const savedValue = tagViews.value.map(it => {
-      // let tagView = {
-      //   ...it,
-      //   route: {
-      //     name: it.route.name,
-      //     fullPath: it.route.fullPath,
-      //     path: it.route.path,
-      //     meta: toValue(it.route.meta),
-      //     query: it.route.query,
-      //     params: toValue(it.route.params,
-      //   }
-      // }
-      const tagView = toValue(it)
+      let tagView = {
+        ...it,
+        route: {
+          name: it.route.name,
+          fullPath: it.route.fullPath,
+          path: it.route.path,
+          meta: toValue(it.route.meta),
+          query: it.route.query,
+          params: toValue(it.route.params),
+        }
+      }
       tagView.route.component = null
       tagView.icon = null
       tagView.component = null
