@@ -84,11 +84,11 @@ export const routes = [
     },
     children: [
       {
-        path: 'baidu',
-        name: 'Baidu',
+        path: 'github',
+        name: 'Github',
         meta: {
-          href: 'https://www.baidu.com/',
-          title: '内嵌百度页面',
+          href: 'https://github.com/Montaro2017/vue-tag-view',
+          title: 'Github',
           icon: Link
         }
       },
