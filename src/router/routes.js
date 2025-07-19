@@ -4,7 +4,7 @@ import { CollectionTag, HomeFilled, Link } from '@element-plus/icons-vue'
 export const homePage = '/'
 
 export const home = {
-  path: '/',
+  path: '/home',
   component: Layout,
   children: [
     {
@@ -22,6 +22,13 @@ export const home = {
 }
 
 export const routes = [
+  {
+    path: '/',
+    redirect: '/tagview',
+    meta: {
+      hideInMenu: true
+    }
+  },
   home,
   {
     path: '/tagview',

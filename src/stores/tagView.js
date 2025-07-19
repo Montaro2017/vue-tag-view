@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import storage from '@/util/storage'
 import { useRouter } from 'vue-router'
 import { home } from "@/router/routes.js"
-import { clone, last, uid } from 'radash'
+import { last, uid } from 'radash'
 import { ref, shallowRef, toValue, watch } from 'vue'
 import { getRouteIcon, getRouteKey, getRouteTitle, isCloseable } from "@/util/route.js"
 
