@@ -1,0 +1,29 @@
+.flex {
+  display: flex;
+  display: -ms-flex;
+  display: -webkit-flex;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.flex-cross-center {
+  align-items: center;
+}
+
+.flex-grow-parent>* {
+  flex-grow: 1;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
