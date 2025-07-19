@@ -3,7 +3,7 @@ import storage from '@/util/storage'
 import { useRouter } from 'vue-router'
 import { home } from "@/router/routes.js"
 import { clone, last, uid } from 'radash'
-import { ref, shallowRef, watch } from 'vue'
+import { ref, shallowRef, toValue, watch } from 'vue'
 import { getRouteIcon, getRouteKey, getRouteTitle, isCloseable } from "@/util/route.js"
 
 export const useTagViewStore = defineStore('tagsView', () => {
@@ -17,7 +17,7 @@ export const useTagViewStore = defineStore('tagsView', () => {
     const savedValue = tagViews.value.map(it => {
       let tagView = {
         ...it,
-        route: {...it.route}
+        route: {...toValue(it.route)}
       }
       tagView.route.component = null
       tagView.icon = null
