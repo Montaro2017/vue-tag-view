@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
   const proxyServer = env.VITE_PROXY_SERVER
   const appTitle = env.VITE_APP_TITLE
   return {
-    root: 'vue-tag-view',
+    base: 'vue-tag-view',
     plugins: [
       vue(),
       AutoImport({
