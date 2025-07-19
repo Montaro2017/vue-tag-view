@@ -16,8 +16,9 @@ export const useTagViewStore = defineStore('tagsView', () => {
   watch(() => [tagViews.value, currentTagView.value], () => {
     const savedValue = tagViews.value.map(it => {
       let tagView = clone(it)
-      delete tagView.icon
-      delete tagView.component
+      tagView.route.component = null
+      tagView.icon = null
+      tagView.component = null
       return tagView
     })
     storage.set("tagViews", savedValue)
