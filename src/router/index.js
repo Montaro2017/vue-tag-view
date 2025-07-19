@@ -1,11 +1,12 @@
 import {clone, toggle} from 'radash'
 import {routes} from './routes.js'
 import Frame from '@/components/layout/Frame.vue'
-import {createRouter, createWebHistory} from 'vue-router'
+import {createRouter} from 'vue-router'
 import {hasPermission, isLogin} from "@/util/permission.js"
 import {useUserStore} from "@/stores/user.js"
 import {ElMessage} from "element-plus"
 import {getRouteTitle} from "@/util/route.js"
+import { createWebHashHistory } from 'vue-router'
 
 const appTitle = import.meta.env.VITE_APP_TITLE
 
@@ -45,7 +46,7 @@ const handleRoutes = (routes) => {
 
 const handledRoutes = handleRoutes(clone(routes))
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [...constantRoutes, ...handledRoutes, ...appendedRoutes],
 })
 
