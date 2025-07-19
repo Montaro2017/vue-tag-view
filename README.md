@@ -1,29 +1,16 @@
-# frontend
+# Vue3 多标签页
 
-This template should help get you started developing with Vue 3 in Vite.
+Vue3 多标签页解决方案
 
-## Recommended IDE Setup
+## 特色
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- 支持路由多开，无需使用onActivated重新加载数据
+- 支持使用router.push直接打开标签页
+- 标签页支持组件内设置标题
+- 支持鼠标中间关闭，鼠标滚轮滚动，切换自动居中
+- 标签页支持保存，刷新页面加载缓存的标签页
 
-## Customize configuration
+## 预览
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+![](./imgs/01.png)
 
-## Project Setup
-
-```sh
-pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-pnpm dev
-```
-
-### Compile and Minify for Production
-
-```sh
-pnpm build
-```
