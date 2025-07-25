@@ -63,16 +63,17 @@ export const useTagViewStore = defineStore('tagsView', () => {
 
   const open = async (tagView, setCurrent = true) => {
     const key = tagView.key
-    let findedTagView = tagViews.value.find(tagView => tagView.key === key)
-    if (!findedTagView) {
-      findedTagView = tagView
-      tagViews.value.push(findedTagView)
+    let findTagView = tagViews.value.find(tagView => tagView.key === key)
+    if (!findTagView) {
+      findTagView = tagView
+      tagViews.value.push(findTagView)
     }
     if (tagView.component) {
-      findedTagView.component = tagView.component
+      findTagView.component = tagView.component
     }
+    findTagView.route = tagView.route
     if (setCurrent) {
-      currentTagView.value = findedTagView
+      currentTagView.value = findTagView
       await router.push(currentTagView.value.route)
     }
   }
@@ -84,8 +85,8 @@ export const useTagViewStore = defineStore('tagsView', () => {
     if (index === -1) {
       return false
     }
-    const findedTagView = tagViews.value[index]
-    if (findedTagView.closeable === false) {
+    const findTagView = tagViews.value[index]
+    if (findTagView.closeable === false) {
       return false
     }
     tagViews.value.splice(index, 1)
