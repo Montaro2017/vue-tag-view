@@ -16,7 +16,8 @@
             </el-icon>
           </span>
           <span class="tag-view-title">{{ tagView.title }}</span>
-          <span class="tag-view-close" v-if="tagView.closeable" @click.stop="closeTagView(tagView)">
+          <span class="tag-view-close" v-if="tagView.closeable" @mousedown.stop="handleCloseMouseDown(tagView)"
+            @mouseup.stop="handleCloseMouseUp(tagView)">
             <el-icon>
               <Close />
             </el-icon>
@@ -48,12 +49,15 @@ const tagViewStore = useTagViewStore()
 const { close, open } = tagViewStore
 const { tagViews, currentTagView } = storeToRefs(tagViewStore)
 
-const openTagView = (tagView) => {
-  open(tagView)
+const closeMouseDown = ref(false)
+const handleCloseMouseDown = (tagView) => {
+  closeMouseDown.value = true
 }
 
-const closeTagView = (tagView) => {
-  close(tagView)
+const handleCloseMouseUp = (tagView) => {
+  if (closeMouseDown.value) {
+    close(tagView)
+  }
 }
 
 const tagViewTagsWrapper = ref()
@@ -88,7 +92,7 @@ const handleMouseUp = (e, tagView) => {
   const button = e.button
   if (button === tagButtonStatus.value[key]) {
     if (button === MOUSE_BUTTON.LEFT) {
-      openTagView(tagView)
+      open(tagView)
     } else if (button === MOUSE_BUTTON.MIDDLE) {
       closeTagView(tagView)
     }
@@ -182,7 +186,7 @@ const scrollAnimation = (toScrollLeft, time = 200) => {
 watch(currentTagView, () => {
   const key = currentTagView.value.key
   scrollToCenter(key)
-}, {immediate: true})
+}, { immediate: true })
 </script>
 
 <style scoped>
