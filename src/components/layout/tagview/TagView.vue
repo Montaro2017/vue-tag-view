@@ -50,12 +50,4 @@ watch(route, () => {
   user-select: none;
   flex-direction: column;
 }
-
-.tag-view-content :deep(.el-scrollbar__view) {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
 </style>

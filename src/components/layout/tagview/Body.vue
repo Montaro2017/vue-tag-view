@@ -1,6 +1,6 @@
 <template>
   <el-main class="tag-view-content">
-    <el-scrollbar>
+    <el-scrollbar class="tag-view-content-scrollbar">
       <template v-for="tagView in tagViews">
         <template v-if="!isInnerFrame(tagView.route)">
           <KeepAlive :key="tagView.key">
@@ -32,5 +32,10 @@ const {tagViews, currentTagView} = storeToRefs(tagViewStore)
 
 
 <style scoped>
-
+.tag-view-content-scrollbar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 </style>
